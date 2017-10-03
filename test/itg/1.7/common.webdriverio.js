@@ -41,7 +41,7 @@ function initCommands(client) {
     client.addCommand('signinBO', function (cb) {
         this.selector = globals.selector;
         client
-            .url('http://' + URL + '/admin-dev')
+            .url('http://' + URL + '/admin228dgr8xu')
             .waitForExist(this.selector.BO.AccessPage.login_input, 90000)
             .setValue(this.selector.BO.AccessPage.login_input, 'demo@prestashop.com')
             .setValue(this.selector.BO.AccessPage.password_input, 'prestashop_demo')

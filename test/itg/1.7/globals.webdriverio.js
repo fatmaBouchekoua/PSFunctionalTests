@@ -108,6 +108,22 @@ module.exports = {
                 popup: '.onboarding-popup',
                 popup_close_button: '.onboarding-button-shut-down',
                 stop_button: '.onboarding-button-stop'
+            },
+            AddEmployee: {
+                employees_subtab: '#subtab-AdminParentEmployees > a',
+                menu: '#nav-sidebar',
+                advanced_parameters: '//*[@id="subtab-AdminAdvancedParameters"]/a/span',
+                new_employee_button: '#page-header-desc-employee-new_employee',
+                employee_firstname_input: '#firstname',
+                employee_lastname_input: '#lastname',
+                employee_email_input: '#email',
+                employee_password_input: '#passwd',
+                employee_profile_select: '#id_profile',
+                employee_submit_button: '#employee_form_submit_btn',
+                employee_table: '#form-employee',
+                employee_email_filter: '//*[@id="form-employee"]/div/div[2]/table/thead/tr[2]/th[5]/input',
+                search_button: '#submitFilterButtonemployee',
+                employee_in_table: '//*[@id="form-employee"]/div/div[2]/table/tbody/tr/td[5]'
             }
         },
 
