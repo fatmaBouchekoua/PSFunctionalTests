@@ -5,7 +5,6 @@ var globals = require('../../globals.webdriverio.js');
 var path = require('path');
 var toUpload = path.join(__dirname, '../..', 'datas', 'image_test.jpg');
 var devMode = false;
-var exit_welcome = false;
 
 
 describe('The Product Creation', function () {
@@ -18,29 +17,10 @@ describe('The Product Creation', function () {
     process.on('uncaughtException', common.take_screenshot);
     process.on('ReferenceError', common.take_screenshot);
     after(common.after);
+    
+    require('../../common_actions/login_BO.webdriverio');
 
-    describe('Log in in Back Office', function (done) {
-        it('should log in successfully in BO', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .signinBO()
-                .waitForExist(this.selector.BO.AddProductPage.menu, 90000)
-                .call(done);
-        });
-    });
-
-    describe('Module "Welcome"', function (done) {
-        it("should close the onboarding if displayed", function (done) {
-            global.fctname = this.test.title;
-            if (this.client.isVisible(this.selector.BO.Onboarding.popup)) {
-                this.client
-                    .click(this.selector.BO.Onboarding.popup_close_button)
-                    .pause(1000)
-                    .click(this.selector.BO.Onboarding.stop_button);
-            };
-            this.client.call(done);
-        });
-    });
+    require('../../common_actions/close_the_onboarding.webdriverio');
 
     describe('Create new product', function (done) {
         it("should click on the <add new product> button", function (done) {
@@ -55,16 +35,6 @@ describe('The Product Creation', function () {
                 devMode = isVisible;
             })
                 .call(done);
-        });
-
-        it('should choose dev mode', function (done) {
-            global.fctname = this.test.title;
-            if (devMode) {
-                this.client
-                    .waitForExist('//a[@class="hide-button"]', 90000)
-                    .click('//a[@class="hide-button"]');
-            }
-            this.client.call(done);
         });
 
         it('should enter the name of product', function (done) {
@@ -136,12 +106,9 @@ describe('The Product Creation', function () {
 
         it('should close toolbar', function (done) {
             global.fctname = this.test.title;
-            if (devMode) {
-                this.client
-                    .waitForExist('//a[@class="hide-button"]', 90000)
-                    .click('//a[@class="hide-button"]');
-            }
-            this.client.call(done);
+            this.client
+                .closeToolbar(devMode)
+                .call(done);
         });
 
         it('should select product online', function (done) {
@@ -159,14 +126,10 @@ describe('The Product Creation', function () {
                 .click(this.selector.BO.AddProductPage.save_product_button)
                 .call(done);
         });
-        it('should close green validation', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .waitForExist(this.selector.BO.AddProductPage.close_validation_button, 90000)
-                .click(this.selector.BO.AddProductPage.close_validation_button)
-                .call(done);
-        });
     });
+
+    require('../../common_actions/close_success_message.webdriverio');
+
     describe('Check the product in the catalog', function (done) {
         it('should go to the catalog', function (done) {
             global.fctname = this.test.title;
@@ -283,13 +246,6 @@ describe('The Product Creation', function () {
         });
     });
 
+    require('../../common_actions/logout_BO.webdriverio');
 
-    describe('Log out in Back Office', function (done) {
-        it('should log out successfully in BO', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .signoutBO2()
-                .call(done);
-        });
-    });
 });

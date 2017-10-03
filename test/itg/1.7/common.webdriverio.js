@@ -77,6 +77,16 @@ function initCommands(client) {
             .call(cb);
     });
 
+    client.addCommand('closeToolbar', function (cb) {
+        this.selector = globals.selector;
+        if (cb) {
+            client
+                .waitForExist('//a[@class="hide-button"]', 90000)
+                .click('//a[@class="hide-button"]')
+        }
+        client.call(cb);
+    });
+
     client.addCommand('signoutFO', function (cb) {
         this.selector = globals.selector;
         client
