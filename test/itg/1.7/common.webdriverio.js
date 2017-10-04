@@ -116,6 +116,24 @@ module.exports = {
     take_screenshot: function (done) {
         client.saveScreenshot(__dirname + '/screenshots/' + client.desiredCapabilities.browserName + '_exception' + '_' + global.date_time + '_' + global.fctname + '.png');
     },
+    getCustomDate: function (numberOfDay) {
+        var today = new Date();
+        today.setDate(today.getDate() + numberOfDay);
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        return today;
+    },
     initMocha: function () {
         this.timeout(900000000);
         this.slow(45000);
