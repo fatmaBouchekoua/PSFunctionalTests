@@ -11,15 +11,6 @@ module.exports = {
             feature1: {
                 custom_value: "5",
             },
-            feature2: {
-                custom_value: "10",
-            },
-            feature3: {
-                custom_value: "15",
-            },
-            feature4: {
-                custom_value: "20",
-            },
         },
         variations: {
             variation1: {
@@ -51,11 +42,11 @@ module.exports = {
         },
     },
 
-    pack : {
-        name:"AutoNewPack",
-        type:"pack of products",
+    pack: {
+        name: "AutoNewPack",
+        type: "pack of products",
         new_category_name: "NewPack",
-        product_reference:"new product automate",
+        product_reference: "new product automate",
         pack: {
             pack1: {
                 search: "Printed Dress",
@@ -68,18 +59,22 @@ module.exports = {
         },
     },
 
-    virtual : {
-        name:"AutoNewVirtual",
-        type:"virtual",
-        new_category_name:"newVirtual",
-        product_reference:"new product automate",
+    virtual: {
+        name: "AutoNewVirtual",
+        type: "virtual",
+        new_category_name: "newVirtual",
+        product_reference: "new product automate",
         pack: {
             search: "Printed Chiffon Dress",
             quantity: "3"
         },
+        attached_file_name: "File to download",
+        allowed_number_to_download: "10",
+        expiration_date: common.getCustomDate(30),
+        number_of_days: '10'
     },
 
-    common : {
+    common: {
         ean13: "0123456789987",
         upc: "012345678901",
         resume: "new automate",
@@ -92,12 +87,12 @@ module.exports = {
         isbn: "1234567890123",
         out_stock: "0",
         qty_min: "1",
-        qty_date:common.getCustomDate(30),
+        qty_date: common.getCustomDate(30),
         qty_msg_stock: "Product avalaible",
         qty_msg_unstock: "Product unavalaible",
-        supplier_reference:"ref_supplier",
+        supplier_reference: "ref_supplier",
         quantity: "10",
-        product_price:"10",
+        product_price: "10",
         cwidth: "10",
         cheight: "10",
         cdepth: "10",
