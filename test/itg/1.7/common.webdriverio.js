@@ -140,5 +140,40 @@ module.exports = {
     },
     browser: function () {
         return options.desiredCapabilities.browserName
+    },
+    logIn: function () {
+        describe('Log in in Back Office', function (done) {
+            it('should log in successfully in BO', function (done) {
+                global.fctname = this.test.title;
+                this.client
+                    .signinBO()
+                    .waitForExist(this.selector.BO.AddProductPage.menu, 90000)
+                    .call(done);
+            });
+        });
+    },
+    logOut: function () {
+        describe('Log out in Back Office', function (done) {
+            it('should log out successfully in BO', function (done) {
+                global.fctname = this.test.title;
+                this.client
+                    .signoutBO2()
+                    .call(done);
+            });
+        });
+    },
+    closeOnboarding: function () {
+        describe('Module "Welcome"', function (done) {
+            it("should close the onboarding if displayed", function (done) {
+                global.fctname = this.test.title;
+                if (this.client.isVisible(this.selector.BO.Onboarding.popup)) {
+                    this.client
+                        .click(this.selector.BO.Onboarding.popup_close_button)
+                        .pause(1000)
+                        .click(this.selector.BO.Onboarding.stop_button);
+                };
+                this.client.call(done);
+            });
+        });
     }
 };
