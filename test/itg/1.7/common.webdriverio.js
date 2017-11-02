@@ -101,14 +101,32 @@ module.exports = {
                 .windowHandleSize({width: 1280, height: 1024});
             } else {
                 client = webdriverio
-                    .remote(options)
-                    .init()
-                .windowHandleSize({width: 1280, height: 1024});
+                    .remote(options);
+/*                    .init()
+                .windowHandleSize({width: 1280, height: 1024});*/
             }
             initCommands(client);
 
             return client;
         }
+    },
+    getCustomDate: function (numberOfDay) {
+        var today = new Date();
+        today.setDate(today.getDate() + numberOfDay);
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        return today;
     },
     after: function (done) {
         done();
