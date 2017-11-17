@@ -86,9 +86,13 @@ Where :
 
 -**DB_SERVER** (optional, default to mysql): To add your database server address
 
+-**DB_NAME** (optional, default to prestashop): Set the database name
+
 -**DB_USER** (optional, default to root): To add your Database login
 
 -**DB_PASSWD** (optional, default doge): To add your Database password
+or
+-**DB_EMPTY_PASSWD** (optional): Set it if your database doesn't require any password
 
 
 > **Note:** To select the module to test, we decided to use the « data-tech-name » because this variable give us only one result in the search module part, in this case we are sure to select the right module
