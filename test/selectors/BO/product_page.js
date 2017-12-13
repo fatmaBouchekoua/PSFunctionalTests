@@ -1,0 +1,27 @@
+module.exports = {
+    ProductPage: {
+        exit_welcome_button: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
+        click_outside: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
+        logout: '#header_logout',
+        products_subtab: '#subtab-AdminCatalog',
+        go_to_catalog_button: '#form > div.product-footer > div.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
+        more_option_button: '.btn.btn-primary.dropdown-toggle',
+        new_product_button: '#page-header-desc-configuration-add',
+        menu: '#nav-sidebar',
+        product_name_input: '#form_step1_name_1',
+        save_product_button: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
+        green_validation_notice: '[class="growl growl-notice growl-medium"]',
+        close_validation_button: '.growl-close',
+        validation_msg: '//*[@id="growls"]/div/div[3]',
+        red_validation_notice: '[class="growl growl-error growl-medium"]',
+        description_tab: '[href="#description"]',
+        price_te_shortcut_input: '#form_step1_price_shortcut',
+        quantity_shortcut_input: '#form_step1_qty_0_shortcut',
+        picture: '[class="dz-hidden-input"]',
+        picture_cover: '.iscover',
+        product_online_toggle: '.switch-input ',
+        catalogue_filter_by_name_input: '//input[@name="filter_column_name"]',
+        catalogue_submit_filter_button: '//button[@name="products_filter_submit"]',
+        priceTE_shortcut: '#form_step1_price_shortcut',
+    }
+}
