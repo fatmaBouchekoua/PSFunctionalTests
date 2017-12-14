@@ -2,9 +2,9 @@ const chai = require('chai');
 chai.use(require('chai-string'));
 global.expect = chai.expect;
 
-/*const takeScreenshot = err => this.client.takeScreenshot().then(() => {
+const takeScreenshot = err => this.client.takeScreenshot().then(() => {
     throw err;
-});*/
+});
 
 global.test = (name, instructions) => it(name, () => {
     return instructions().catch();

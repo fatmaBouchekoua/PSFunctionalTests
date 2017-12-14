@@ -22,7 +22,7 @@ describe('Allscenario', function () {
         require('./install_prestashop.js');
     }
 
-    //install and uninstall module
+/*    //install and uninstall module
     if (typeof module_tech_name !== 'undefined' && module_tech_name != "None") {
         require('./scenario/BO/install_and_uninstall_module.js');
         require('./scenario/BO/install_module.js');
@@ -41,6 +41,8 @@ describe('Allscenario', function () {
 
     if (typeof module_tech_name !== 'undefined' && module_tech_name != "None") {
         require('./scenario/BO/uninstall_module.js');
-    }
+    }*/
+
+    require('./scenario/BO/create_order.webdriverio');
 
 });

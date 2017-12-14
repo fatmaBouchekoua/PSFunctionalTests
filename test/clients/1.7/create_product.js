@@ -1,4 +1,5 @@
 var CommonClient = require('./common_client');
+const {ProductPage} = require('./../../selectors/BO/product_page');
 
 class CreateProduct extends CommonClient {
 
@@ -18,34 +19,20 @@ class CreateProduct extends CommonClient {
             .setValue(selector, "5")
     }
 
-    selectVariation(addProductPage, name) {
+    searchProductByName(productName) {
         return this.client
-            .waitAndSetValue(addProductPage.variations_input, name + " : All")
-            .waitForExistAndClick(addProductPage.variations_select)
+            .waitForExistAndClick(ProductPage.catalogue_filter_by_name_input)
+            .waitAndSetValue(ProductPage.catalogue_filter_by_name_input, productName)
+            .waitForExistAndClick(ProductPage.click_outside)
+            .waitForExistAndClick(ProductPage.catalogue_submit_filter_button)
     }
 
-    setVariationsQuantity(addProductPage, value) {
+    checkProductPriceTE() {
         return this.client
-            .pause(4000)
-            .waitAndSetValue(addProductPage.var_selected_quantitie, value)
-            .moveToObject(addProductPage.combinations_thead, 90000)
-            .waitForExistAndClick(addProductPage.save_quantitie_button)
-    }
-
-    clickOnAddFeature(addProductPage) {
-        return this.client
-            .moveToObject(addProductPage.product_create_category_btn)
-            .waitForExistAndClick(addProductPage.add_feature_to_product_button)
-    }
-
-    selectFeature(addProductPage, name, value) {
-        return this.client
-            .moveToObject(addProductPage.feature_select)
-            .waitForExistAndClick(addProductPage.feature_select)
-            .waitAndSetValue(addProductPage.select_feature_created, name)
-            .waitForExistAndClick(addProductPage.result_feature_select.replace('%ID', 0))
-            .pause(2000)
-            .selectByVisibleText(addProductPage.feature_value_select, value)
+            .waitForExist(ProductPage.catalog_product_price, 60000)
+            .then(() => this.client.getText(ProductPage.catalog_product_price))
+            .then((price) => price = price.replace('€', ''))
+            .then((price) => expect(price).to.be.equal(5 + '.00'));
     }
 
 }

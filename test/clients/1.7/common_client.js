@@ -121,7 +121,7 @@ class CommonClient {
             .execute(function (className) {
                 document.getElementsByClassName(className).style = '';
             })
-            .chooseFile(selector, path.join(__dirname, '..', 'datas', picture))
+            .chooseFile(selector, path.join(__dirname, '../..', 'datas', picture))
     }
 
     /**

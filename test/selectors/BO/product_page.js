@@ -23,5 +23,13 @@ module.exports = {
         catalogue_filter_by_name_input: '//input[@name="filter_column_name"]',
         catalogue_submit_filter_button: '//button[@name="products_filter_submit"]',
         priceTE_shortcut: '#form_step1_price_shortcut',
+        catalog_product_name: '//*[@id="product_catalog_list"]/div[2]/div/table/tbody/tr/td[3]/a',
+        catalog_product_reference: '//*[@id="product_catalog_list"]/div[2]/div/table/tbody/tr/td[4]',
+        catalog_product_category: '//*[@id="product_catalog_list"]/div[2]/div/table/tbody/tr/td[5]',
+        catalog_product_price: '//*[@id="product_catalog_list"]/div[2]/div/table/tbody/tr/td[6]',
+        catalog_product_quantity: '//*[@id="product_catalog_list"]/div[2]/div/table/tbody/tr/td[7]',
+        catalog_product_online: '//*[@id="product_catalog_list"]/div[2]/div/table/tbody/tr/td[8]/a/i',
+        catalog_reset_filter: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[2]/th[9]/button[2]',
+        catalog_home: '//*[@id="form_step1_categories"]/ul/li/div/label',
     }
-}
+};
